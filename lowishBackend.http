@@ -1,0 +1,6 @@
+@lowishBackend_HostAddress = http://localhost:5157
+
+GET {{lowishBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
