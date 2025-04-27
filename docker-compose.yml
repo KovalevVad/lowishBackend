@@ -23,8 +23,23 @@
           POSTGRES_PASSWORD: 123456
         ports:
           - "5433:5432"
-        volumes:
+        volumes:    
           - pgdata:/var/lib/postgresql/data
+
+      pgadmin:
+        image: dpage/pgadmin4
+        restart: always
+        environment:
+          PGADMIN_DEFAULT_EMAIL: user@example.com
+          PGADMIN_DEFAULT_PASSWORD: pgadmin
+          PGADMIN_CONFIG_SERVER_MODE: 'False'
+        ports:
+          - "5050:80"
+        volumes:
+          - pgadmin-data:/var/lib/pgadmin
+        depends_on:
+          - db
 
     volumes:
       pgdata:
+      pgadmin-data:
