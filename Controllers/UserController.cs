@@ -1,4 +1,5 @@
 ﻿using lowishBackend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ namespace lowishBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize] // Добавляем атрибут Authorize для защиты всех методов контроллера
     public class UserController : ControllerBase
     {
         private readonly AppDbContext _context;

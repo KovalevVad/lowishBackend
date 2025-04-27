@@ -1,13 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace lowishBackend.Models
+namespace lowishBackend.DTOs
 {
-    public class User
+    public class RegisterRequest
     {
-        public int Id { get; set; }
-
         [Required]
-        [StringLength(50)]
+        [StringLength(50, MinimumLength = 3)]
         public string Username { get; set; } = null!;
 
         [Required]
@@ -16,9 +14,9 @@ namespace lowishBackend.Models
         public string Email { get; set; } = null!;
 
         [Required]
-        public string PasswordHash { get; set; } = null!;
+        [StringLength(100, MinimumLength = 6)]
+        public string Password { get; set; } = null!;
 
-        // Оставим поле Name для обратной совместимости
         public string? Name { get; set; }
     }
 }
